@@ -1,4 +1,4 @@
-[![Circle CI](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/ci.svg?style=svg&circle-token=f6aa2aeba9a663c714d5b2da1af9554c5afc086a)](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/ci)
+[![Build Status](https://api.shippable.com/projects/54b200441cda23c2985c89a2/badge?branchName=develop)](https://app.shippable.com/projects/54b200441cda23c2985c89a2/builds/latest)[![Circle CI](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/develop.svg?style=svg&circle-token=f6aa2aeba9a663c714d5b2da1af9554c5afc086a)](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/develop)
 
 A mail server in a box.
 ==========
