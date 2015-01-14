@@ -1,6 +1,6 @@
 language: python
 
-build_image: htmlgraphic/imap-server:2.1.7
+build_image: htmlgraphic/imap-server:2.1.8
 
 cache: true
 

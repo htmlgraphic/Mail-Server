@@ -4,7 +4,7 @@
 NAME = imap-server
 IMAGE_REPO = htmlgraphic
 IMAGE_NAME = $(IMAGE_REPO)/$(NAME)
-VERSION = 2.1.7
+VERSION = 2.1.8
 DOMAIN = htmlgraphic.com
 
 all:: help
@@ -14,7 +14,7 @@ help:
 	@echo ""
 	@echo "-- Help Menu"
 	@echo ""
-	@echo "     make build        - Build the $(NAME) image"
+	@echo "     make build        - Build $(NAME):$(VERSION)"
 	@echo "     make push         - Push $(IMAGE_NAME) to public docker repo"
 	@echo "     make run          - Create a container for $(NAME)"
 	@echo "     make start        - Start the EXISTING $(NAME) container"
