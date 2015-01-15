@@ -1,4 +1,4 @@
-FROM mail-base
+FROM mailbase
 
 RUN apt-get -y update
 

@@ -1,4 +1,4 @@
-FROM mail-base
+FROM mailbase
 
 RUN apt-get update
 RUN apt-get -y --force-yes install git make gettext python-pip

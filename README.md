@@ -1,4 +1,4 @@
-[![Build Status](https://api.shippable.com/projects/54b200441cda23c2985c89a2/badge?branchName=develop)](https://app.shippable.com/projects/54b200441cda23c2985c89a2/builds/latest)[![Circle CI](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/develop.svg?style=svg&circle-token=f6aa2aeba9a663c714d5b2da1af9554c5afc086a)](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/develop)
+[![Build Status](https://api.shippable.com/projects/54b200441cda23c2985c89a2/badge?branchName=develop)](https://app.shippable.com/projects/54b200441cda23c2985c89a2/builds/latest) [![Circle CI](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/develop.svg?style=svg&circle-token=f6aa2aeba9a663c714d5b2da1af9554c5afc086a)](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/develop)
 
 A mail server in a box.
 ==========
@@ -57,7 +57,7 @@ want to receive the mail for and send mail from this domain. It consists of 4 se
    but you can play around with it if you like. By default, the web interface will bind to `localhost:33411`
 
 
- - **mail-base**: This image is just an implementation detail. It is a workaround to allow sharing of configuration files between multiple docker images. 
+ - **mailbase**: This image is just an implementation detail. It is a workaround to allow sharing of configuration files between multiple docker images. 
 
 
 
@@ -67,14 +67,14 @@ Setup
 
 ###1) Add needed domains 
 
-Any domains you want to receive mail for to the file `mail-base/domains`:
+Any domains you want to receive mail for to the file `mailbase/domains`:
 
     example.org
     example.net
 
 ###2) Add user aliases 
 
-Edit the file `mail-base/aliases`, to add any needed aliases:
+Edit the file `mailbase/aliases`, to add any needed aliases:
 
     johndoe@example.org         john.doe@example.org
     john.doe@example.org        john.doe@example.org
@@ -87,7 +87,7 @@ be delivered to the corresponding account in the right column.
 
 ###3) Add user passwords
 
-Edit the file `mail-base/passwords` with the following:
+Edit the file `mailbase/passwords` with the following:
 
     john.doe@example.org:{PLAIN}password123
     admin@example.org:{SHA256-CRYPT}$5$ojXGqoxOAygN91er$VQD/8dDyCYOaLl2yLJlRFXgl.NSrB3seZGXBRMdZAr6

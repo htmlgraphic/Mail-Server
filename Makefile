@@ -53,8 +53,8 @@ remove: stop
 data:	
 	@echo "Creating data containers for IMAP Server..."
 	docker run -v /srv --name mailvol ubuntu:14.04 
-	cd mail-base; docker build --no-cache -t mail-base .
-	docker run --name mailbase mail-base
+	cd mail-base; docker build --no-cache -t mailbase .
+	docker run --name mailbase mailbase
 
 
 
