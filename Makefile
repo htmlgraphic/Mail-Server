@@ -34,7 +34,7 @@ push:
 
 run: 
 	@echo "Run $(IMAGE_NAME):$(VERSION)..."
-	docker run -d --restart=always --volumes-from mailvol --volumes-from mailbase --name $(NAME) -p 0.0.0.0:25:25 -p 0.0.0.0:587:587 -p 0.0.0.0:143:143 $(IMAGE_NAME):$(VERSION)
+	docker run -d --restart=always --volumes-from mailvol --volumes-from mailbase --name $(NAME) -p 25:25 -p 587:587 -p 143:143 $(IMAGE_NAME):$(VERSION)
 
 start:
 	@echo "Starting $(NAME):$(VERSION)..."
