@@ -9,6 +9,7 @@ test:
   override:
     # test imap-server
     - docker run --name mail-base mail-base
+    - docker run -v /srv --name mailvol ubuntu:14.04
     - docker run -d --restart=always --volumes-from mail-base -e USER=p08tf1X -e PASS=p@ssw0Rd -e LOG_TOKEN=8397b752-123f-4d10-95b1-76f267102a7b --name imap-server -p 25:25 -p 587:587 -p 143:143 imap-server:2.1.8
 
     # test imap-server
