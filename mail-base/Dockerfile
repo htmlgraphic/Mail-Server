@@ -6,8 +6,6 @@ RUN apt-get update && apt-get -y install \
     vim \
     openssl && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-VOLUME ["/mailbase"]
-
 ADD ./domains /mailbase/domains
 ADD ./aliases /mailbase/aliases
 ADD ./passwords /mailbase/passwords
@@ -20,4 +18,4 @@ ADD ./mkcert.sh	/mkcert.sh
 RUN chmod 755 /mkcert.sh
 RUN sh /mkcert.sh
 
-VOLUME ["/etc/ssl"]
+VOLUME ["/mailbase", "/etc/ssl"]
