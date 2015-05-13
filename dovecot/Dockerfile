@@ -1,13 +1,14 @@
 FROM ubuntu:14.04 
 
-# prerequisites
-RUN apt-get update
-
 # Install self-signed ssl certs
 # Install postfix as MTA
 # Install dovecot as IMAP server
-RUN apt-get install -y --force-yes ssl-cert postfix dovecot-imapd supervisor \ 
-    rsyslog && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get -yq install --force-yes ssl-cert \
+	postfix \
+	dovecot-imapd \
+	supervisor \ 
+    rsyslog && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 
 # SUPERVISOR
 RUN mkdir -p /var/log/supervisor
@@ -29,12 +30,13 @@ ADD ./dovecot.imap /etc/dovecot/conf.d/20-imap.conf
 # add verbose logging
 #ADD ./internal/dovecot.logging /etc/dovecot/conf.d/10-logging.conf
 
-# i'm not sure what expose actually does, so its mainly here for documentation
-# smtp port for incoming mail
+# Note that EXPOSE only works for inter-container links. It doesn't make ports accessible from the host. To expose port(s) to the host, at runtime, use the -p flag.
+
+# SMTP Port for incoming mail
 EXPOSE 25 
-# imap port
+# IMAP Port
 EXPOSE 143
-# smtp port for outgoing
+# SMTP Port for outgoing mail
 EXPOSE 587
 
 # todo: enable port 587 for outgoing mail, separate ports 25 and 587
