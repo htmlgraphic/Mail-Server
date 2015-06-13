@@ -32,15 +32,8 @@ ADD ./dovecot.imap /etc/dovecot/conf.d/20-imap.conf
 
 # Note that EXPOSE only works for inter-container links. It doesn't make ports accessible from the host. To expose port(s) to the host, at runtime, use the -p flag.
 
-# SMTP Port for incoming mail
-EXPOSE 25 
-# IMAP Port
-EXPOSE 143
-# SMTP Port for outgoing mail
-EXPOSE 587
-
-# todo: enable port 587 for outgoing mail, separate ports 25 and 587
-# http://www.synology-wiki.de/index.php/Zusaetzliche_Ports_fuer_Postfix
+# SMTP Incoming, IMAP, SMTP Outgoing
+EXPOSE 25 143 587
 
 # add script to configure container
 ADD ./configure.sh /configure.sh
