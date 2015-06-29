@@ -14,4 +14,4 @@ mailvol:
   volumes:
    - "/srv"
 mailbase:
-  build: ./mail-base
+  build: ./mailbase

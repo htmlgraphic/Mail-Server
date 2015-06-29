@@ -3,7 +3,7 @@ machine:
     - docker
 dependencies:
   override:
-    - docker build --no-cache -t mailbase mail-base/
+    - docker build --no-cache -t mailbase mailbase/
     - docker build -t imap-server:2.1.8 dovecot/
 test:
   override:

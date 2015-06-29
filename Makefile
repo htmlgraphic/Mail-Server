@@ -32,7 +32,7 @@ build:
 push:
 	docker push $(IMAGE_NAME)
 
-run: 
+run:
 	@echo "Run $(IMAGE_NAME):$(VERSION)..."
 	docker run -d --restart=always --volumes-from mailvol --volumes-from mailbase --name $(NAME) -p 25:25 -p 587:587 -p 143:143 $(IMAGE_NAME):$(VERSION)
 
@@ -50,10 +50,10 @@ remove: stop
 	@echo "Removing $(NAME):$(VERSION)..."
 	docker rm $(NAME)
 
-data:	
+data:
 	@echo "Creating data containers for IMAP Server..."
-	docker run -v /srv --name mailvol ubuntu:14.04 
-	cd mail-base; docker build --no-cache -t mailbase .
+	docker run -v /srv --name mailvol ubuntu:14.04
+	cd mailbase; docker build --no-cache -t mailbase .
 	docker run --name mailbase mailbase
 
 
@@ -77,6 +77,6 @@ run-mailpile:
 	docker run -d -p 127.0.0.1:33411:33411 mailpile:latest
 
 run-owncloud:
-	docker run -d -p 127.0.0.1:33200:80 -v /srv/owncloud:/var/www/owncloud/data owncloud:7.0.2 
+	docker run -d -p 127.0.0.1:33200:80 -v /srv/owncloud:/var/www/owncloud/data owncloud:7.0.2
 
 run-all: run run-rainloop run-owncloud
