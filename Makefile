@@ -7,6 +7,7 @@ IMAGE_NAME = $(IMAGE_REPO)/$(NAME)
 VERSION = 2.1.8
 DOMAIN = htmlgraphic.com
 
+
 all:: help
 
 
@@ -34,7 +35,7 @@ push:
 
 run:
 	@echo "Run $(IMAGE_NAME):$(VERSION)..."
-	docker run -d --restart=always --volumes-from mailvol --volumes-from mailbase --name $(NAME) -p 25:25 -p 587:587 -p 143:143 $(IMAGE_NAME):$(VERSION)
+	docker run -d --restart=always --volumes-from mailvol --volumes-from mailbase --name $(NAME) -e LOG_TOKEN=$(IMAP_LOG_TOKEN) -p 25:25 -p 587:587 -p 143:143 $(IMAGE_NAME):$(VERSION)
 
 start:
 	@echo "Starting $(NAME):$(VERSION)..."

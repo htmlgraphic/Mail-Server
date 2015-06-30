@@ -1,4 +1,4 @@
-FROM ubuntu:14.04 
+FROM ubuntu:14.04
 
 # Install self-signed ssl certs
 # Install postfix as MTA
@@ -6,8 +6,8 @@ FROM ubuntu:14.04
 RUN apt-get update && apt-get -yq install --force-yes ssl-cert \
 	postfix \
 	dovecot-imapd \
-	supervisor \ 
-    rsyslog && apt-get clean && rm -rf /var/lib/apt/lists/*
+	supervisor \
+	rsyslog && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
 # SUPERVISOR
