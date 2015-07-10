@@ -1,8 +1,12 @@
 language: python
 
-build_image: htmlgraphic/imap-server:2.1.8
+build_image: htmlgraphic/imap-server:latest
 
-cache: true
+branches:
+  only:
+  - master
+  - develop
+
 
 notifications:
   email:
@@ -10,8 +14,3 @@ notifications:
       - jason@htmlgraphic.com
     on_success: change
     on_failure: always
-
-branches:
-  only:
-  - master
-  - develop
