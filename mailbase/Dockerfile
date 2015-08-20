@@ -3,7 +3,6 @@ FROM ubuntu:14.04
 ENV DEBIAN_FRONTEND noninteractive
 RUN locale-gen en_US en_US.UTF-8 && dpkg-reconfigure locales
 RUN apt-get update && apt-get -y install \
-    vim \
     openssl && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ADD ./domains /mailbase/domains

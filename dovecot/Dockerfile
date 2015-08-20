@@ -4,6 +4,7 @@ FROM ubuntu:14.04
 # Install postfix as MTA
 # Install dovecot as IMAP server
 RUN apt-get update && apt-get -yq install --force-yes ssl-cert \
+	vim \
 	postfix \
 	dovecot-imapd \
 	supervisor \
