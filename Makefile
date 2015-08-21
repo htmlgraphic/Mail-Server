@@ -1,12 +1,11 @@
 # Build a container via the command "make build"
 # By Jason Gegere <jason@htmlgraphic.com>
 
-NAME = imap-server
-IMAGE_REPO = htmlgraphic
-IMAGE_NAME = $(IMAGE_REPO)/$(NAME)
-VERSION = 2.1.8
-DOMAIN = htmlgraphic.com
-
+VERSION 			= 2.1.9
+NAME 				= imap-server
+IMAGE_REPO 	= htmlgraphic
+IMAGE_NAME 	= $(IMAGE_REPO)/$(NAME)
+DOMAIN 			= htmlgraphic.com
 
 all:: help
 
@@ -15,14 +14,14 @@ help:
 	@echo ""
 	@echo "-- Help Menu"
 	@echo ""
-	@echo "     make build        - Build $(NAME):$(VERSION)"
-	@echo "     make push         - Push $(IMAGE_NAME) to public docker repo"
-	@echo "     make run          - Create a container for $(NAME)"
-	@echo "     make start        - Start the EXISTING $(NAME) container"
-	@echo "     make stop         - Stop $(NAME) container"
-	@echo "     make restart      - Stop and start $(NAME) container"
-	@echo "     make remove       - Remove $(NAME) container"
-	@echo "     make data         - Build containers for persistent data"
+	@echo "     make build		- Build image $(IMAGE_NAME):$(VERSION)"
+	@echo "     make push		- Push $(IMAGE_NAME):$(VERSION) to public docker repo"
+	@echo "     make run		- Create a container for $(NAME)"
+	@echo "     make start		- Start the EXISTING $(NAME) container"
+	@echo "     make stop		- Stop $(NAME) container"
+	@echo "     make restart	- Stop and start $(NAME) container"
+	@echo "     make rm		- Remove $(NAME) container"
+	@echo "     make data		- Build containers for persistent data"
 
 #### MAIL SERVICE
 
@@ -31,7 +30,8 @@ build:
 	cd dovecot; docker build -t $(IMAGE_NAME):$(VERSION) .
 
 push:
-	docker push $(IMAGE_NAME)
+	@echo "note: If the repository is set as an automatted build you will NOT be able to push"
+	docker push $(IMAGE_NAME):$(VERSION)
 
 run:
 	@echo "Run $(IMAGE_NAME):$(VERSION)..."
@@ -47,7 +47,7 @@ stop:
 
 restart: stop start
 
-remove: stop
+rm: stop
 	@echo "Removing $(NAME):$(VERSION)..."
 	docker rm $(NAME)
 
