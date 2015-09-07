@@ -16,12 +16,11 @@ help:
 	@echo ""
 	@echo "     make build		- Build image $(IMAGE_NAME):$(VERSION)"
 	@echo "     make push		- Push $(IMAGE_NAME):$(VERSION) to public docker repo"
-	@echo "     make run		- Create a container for $(NAME)"
+	@echo "     make run		- Run docker-compose and create local development environment"
 	@echo "     make start		- Start the EXISTING $(NAME) container"
-	@echo "     make stop		- Stop $(NAME) container"
+	@echo "     make stop		- Stop local environment build"
 	@echo "     make restart	- Stop and start $(NAME) container"
 	@echo "     make rm		- Remove $(NAME) container"
-	@echo "     make data		- Build containers for persistent data"
 
 #### MAIL SERVICE
 
@@ -35,7 +34,7 @@ push:
 
 run:
 	@echo "Run $(IMAGE_NAME):$(VERSION)..."
-	docker run -d --restart=always --volumes-from mailvol --volumes-from mailbase --name $(NAME) -e LOG_TOKEN=$(IMAP_LOG_TOKEN) -p 25:25 -p 587:587 -p 143:143 $(IMAGE_NAME):$(VERSION)
+	docker-compose up -d
 
 start:
 	@echo "Starting $(NAME):$(VERSION)..."
@@ -43,20 +42,13 @@ start:
 
 stop:
 	@echo "Stopping $(NAME):$(VERSION)..."
-	docker stop $(NAME)
+	docker-compose stop
 
 restart: stop start
 
 rm: stop
 	@echo "Removing $(NAME):$(VERSION)..."
 	docker rm $(NAME)
-
-data:
-	@echo "Creating data containers for IMAP Server..."
-	docker run -v /srv --name mailvol ubuntu:14.04
-	cd mailbase; docker build --no-cache -t mailbase .
-	docker run --name mailbase mailbase
-
 
 
 #### BELOW NEEDS TO BE REFINED, SIMPLIFIED AND IMPROVED
