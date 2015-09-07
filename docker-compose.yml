@@ -1,17 +1,21 @@
-mail:
-  build: ./dovecot
+imap_server:
+  image: htmlgraphic/imap-server:latest
   ports:
-   - "25:25"
-   - "143:143"
-   - "587:587"
+    - "25:25"
+    - "143:143"
+    - "587:587"
   volumes_from:
-   - mailbase
-   - mailvol
+    - mailbase
+    - mailvol
+  restart: always
   environment:
-    MAILNAME: imap-test.htmlgraphic.com
+    - NODE_ENVIRONMENT=production
+    - LOG_TOKEN=$(LOG_ENTRIES_TOKEN)
+    - HOST=$(HOST)
+    - MAILNAME=$(HOST)
 mailvol:
   image: ubuntu:14.04
   volumes:
-   - "/srv"
+    - "/srv"
 mailbase:
   build: ./mailbase
