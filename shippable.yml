@@ -1,6 +1,6 @@
 language: python
 
-build_image: htmlgraphic/imap-server:latest
+before_script: cd dovecot
 
 branches:
   only:
