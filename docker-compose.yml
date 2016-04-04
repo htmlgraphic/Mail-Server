@@ -1,21 +1,20 @@
-imap_server:
-  image: htmlgraphic/imap-server:latest
+imap:
+  image: 'htmlgraphic/imap-server:latest'
+  autoredeploy: true
+  deployment_strategy: high_availability
   ports:
-    - "25:25"
-    - "143:143"
-    - "587:587"
+    - '25:25'
+    - '143:143'
+    - '587:587'
   volumes_from:
     - mailbase
     - mailvol
   restart: always
   environment:
     - NODE_ENVIRONMENT=production
-    - LOG_TOKEN=$(LOG_ENTRIES_TOKEN)
-    - HOST=$(HOST)
-    - MAILNAME=$(HOST)
+    - LOG_TOKEN=
+    - MAILNAME=imap-test.htmlgraphic.com
 mailvol:
   image: ubuntu:14.04
-  volumes:
-    - "/srv"
 mailbase:
-  build: ./mailbase
+  image: 'htmlgraphic/mailbase:latest'
