@@ -3,7 +3,7 @@
 
 StartPostfix ()
 {
-    echo "=> Adding the following credentials $USER:$PASS"
+    echo "=> Adding the following credentials $SASLUSER:$SASLPASS"
     echo "=> Log Key: $LOG_TOKEN"
     #$allow_networks = "";
 }
