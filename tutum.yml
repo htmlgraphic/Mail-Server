@@ -1,5 +1,9 @@
 imap:
   image: 'htmlgraphic/imap-server:latest'
+  environment:
+    - NODE_ENVIRONMENT=production
+    - LOG_TOKEN=
+    - MAILNAME=imap-test.htmlgraphic.com
   autoredeploy: true
   deployment_strategy: high_availability
   ports:
@@ -10,11 +14,18 @@ imap:
     - mailbase
     - mailvol
   restart: always
-  environment:
-    - NODE_ENVIRONMENT=production
-    - LOG_TOKEN=
-    - MAILNAME=imap-test.htmlgraphic.com
+  tags:
+    - email
+    - production
 mailvol:
-  image: ubuntu:14.04
+  image: 'ubuntu:14.04'
+  volumes:
+    - "/srv"
+  tags:
+    - email
+    - production
 mailbase:
   image: 'htmlgraphic/mailbase:latest'
+  tags:
+    - email
+    - production
