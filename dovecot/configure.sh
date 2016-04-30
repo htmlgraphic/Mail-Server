@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # postfix configuration
-echo $MAILNAME > /etc/mailname
+echo $HOSTNAME > /etc/mailname
 cat /etc/postfix/master-additional.cf >> /etc/postfix/master.cf
 
 # configure mail delivery to dovecot

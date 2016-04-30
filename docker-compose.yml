@@ -13,7 +13,7 @@ imap:
   environment:
     - NODE_ENVIRONMENT=production
     - LOG_TOKEN=
-    - MAILNAME=imap-test.htmlgraphic.com
+    - HOSTNAME=imap-test.htmlgraphic.com
 mailvol:
   image: 'ubuntu:14.04'
   volumes:

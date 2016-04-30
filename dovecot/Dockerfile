@@ -44,7 +44,6 @@ RUN chmod 755 /configure.sh
 ADD ./run.sh /run.sh
 RUN chmod 755 /run.sh
 
-ENV MAILNAME imap-test.htmlgraphic.com
 ENV CERTIFICATE dovecot.pem
 ENV KEYFILE dovecot.pem
 

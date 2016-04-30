@@ -3,7 +3,7 @@ imap:
   environment:
     - NODE_ENVIRONMENT=production
     - LOG_TOKEN=
-    - MAILNAME=imap-test.htmlgraphic.com
+    - HOSTNAME=imap-test.htmlgraphic.com
   autoredeploy: true
   deployment_strategy: high_availability
   ports:
