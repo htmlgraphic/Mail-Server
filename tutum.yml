@@ -1,31 +1,30 @@
-imap:
-  image: 'htmlgraphic/imap-server:latest'
-  environment:
-    - NODE_ENVIRONMENT=production
-    - LOG_TOKEN=
-    - HOSTNAME=imap-test.htmlgraphic.com
-  autoredeploy: true
-  deployment_strategy: high_availability
-  ports:
-    - '25:25'
-    - '143:143'
-    - '587:587'
-  volumes_from:
-    - mailbase
-    - mailvol
-  restart: always
-  tags:
-    - email
-    - production
-mailvol:
-  image: 'ubuntu:14.04'
-  volumes:
-    - "/srv"
-  tags:
-    - email
-    - production
-mailbase:
+hg-mailbase:
   image: 'htmlgraphic/mailbase:latest'
   tags:
     - email
-    - production
+mail:
+  autoredeploy: true
+  deployment_strategy: high_availability
+  environment:
+    - HOSTNAME=email-test.htmlgraphic.com
+    - LOG_TOKEN=
+    - SASLUSER=test@htmlgraphic.com
+    - SASLPASS=9igDof1hvpFAEYp
+    - NODE_ENVIRONMENT=production
+  image: 'htmlgraphic/imap-server:loopback'
+  ports:
+    - '143:143'
+    - '587:587'
+  restart: always
+  tags:
+    - email
+  volumes_from:
+    - hg-mailbase
+ssh:
+  environment:
+    - AUTHORIZED_KEYS=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCbKBlYPbK29pUUwtwRIIjwCtZNujOUb77qHIeohOMk+O8z0gEIgkUwVI3x91AlbhctgpQor3IIeFITwGgIKVo33WW64HI9Nfr2vGx9EAfl9CL9cfDj9M9u4EFOn8NkD/TQMH4d1Fslt59eyl4fSV62d98zJ8goJwrolXM5NlS3hss8FtXhN6bNM0V5nliPUrv/1//3ZoZ5p0inOI1xWNHcMEILGllG+yqaknH9yIk880WoCYZuR7q2ddE6mxrBeJFiyryW5nhsxmXfHnsDVGiLh1C3hltEXzZ0Bdj11jhJfgIcuKU1iUFZg3kKVjRAvrteBQA328s5+UJswV+NWFiH hosting@htmlgraphic.com
+  image: 'tutum/ubuntu:latest'
+  ports:
+    - '2222:22'
+  volumes_from:
+    - hg-mailbase

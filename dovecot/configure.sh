@@ -6,11 +6,19 @@ cat /etc/postfix/master-additional.cf >> /etc/postfix/master.cf
 
 # configure mail delivery to dovecot
 cp /mailbase/aliases /etc/postfix/virtual
-cp /mailbase/domains /etc/postfix/virtual-mailbox-domains
+cp /mailbase/domains /etc/postfix/transport
+echo "[${HOSTNAME}]:587     ${SASLUSER}:${SASLPASS}" > /mailbase/sasl_passwd
+cp /mailbase/sasl_passwd /etc/postfix/sasl_passwd
 
 # copy services file & DNS lookup for jailed postfix service
 cp /etc/services /var/spool/postfix/etc/services
 cp /etc/resolv.conf /var/spool/postfix/etc/resolv.conf
+
+# map virtual aliases and user/filesystem mappings
+postmap /etc/postfix/virtual
+postmap /etc/postfix/transport
+postmap /etc/postfix/sasl_passwd
+chmod 600 /etc/postfix/sasl_passwd /etc/postfix/sasl_passwd.db
 
 # todo: this could probably be done in one line
 mkdir /etc/postfix/tmp; awk < /etc/postfix/virtual '{ print $2 }' > /etc/postfix/tmp/virtual-receivers
