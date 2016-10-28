@@ -2,12 +2,6 @@ language: python
 
 before_script: cd dovecot
 
-branches:
-  only:
-  - master
-  - develop
-
-
 notifications:
   email:
     recipients:
