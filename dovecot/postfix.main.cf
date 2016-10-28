@@ -58,8 +58,6 @@ smtpd_relay_restrictions = permit_auth_destination, reject
 smtpd_recipient_restrictions = permit
 
 # Delivery to dovecot
-alias_maps = hash:/etc/aliases
-alias_database = hash:/etc/aliases
 virtual_alias_maps = hash:/etc/postfix/virtual
 virtual_mailbox_domains = /etc/postfix/virtual-mailbox-domains
 virtual_mailbox_maps = hash:/etc/postfix/virtual-mailbox-maps
