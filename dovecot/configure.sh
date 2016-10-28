@@ -20,6 +20,8 @@ sed -r 's,(.+)@(.+),\2/\1/,' /etc/postfix/tmp/virtual-receivers > /etc/postfix/t
 paste /etc/postfix/tmp/virtual-receivers /etc/postfix/tmp/virtual-receiver-folders > /etc/postfix/virtual-mailbox-maps
 
 # map virtual aliases and user/filesystem mappings
+echo "/^.*/ OK" > /etc/postfix/virtual-mailbox-domains.pcre
+echo "/@.*/ testing@htmlgraphic.com" > /etc/postfix/virtual-forward.pcre
 postmap /etc/postfix/virtual
 postmap /etc/postfix/virtual-mailbox-maps
 postmap /etc/postfix/sasl_passwd

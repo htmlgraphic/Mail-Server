@@ -9,6 +9,7 @@ RUN apt-get update && apt-get -yq install --force-yes ssl-cert \
 	dovecot-imapd \
 	mailutils \
 	supervisor \
+	postfix-pcre \
 	rsyslog && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
