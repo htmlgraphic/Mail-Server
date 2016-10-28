@@ -7,8 +7,7 @@ mail:
   deployment_strategy: high_availability
   environment:
     - HOSTNAME=email-test.htmlgraphic.com
-    - LOG_TOKEN=555a3cbd-123f-4ac6-8862-9ae6dcbf85a5
-    - MAILNAME=email-test.htmlgraphic.com
+    - LOG_TOKEN=
     - SASLUSER=test@htmlgraphic.com
     - SASLPASS=9igDof1hvpFAEYp
     - NODE_ENVIRONMENT=production
