@@ -15,6 +15,7 @@ mail:
   ports:
     - '143:143'
     - '587:587'
+    - '25:25'
   restart: always
   tags:
     - email
