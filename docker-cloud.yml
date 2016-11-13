@@ -2,14 +2,20 @@ hg-mailbase:
   image: 'htmlgraphic/mailbase:latest'
   tags:
     - email
+hg-mailvol:
+  image: 'busybox:latest'
+  volumes:
+    - "/srv"
+  tags:
+    - email
 mail:
   autoredeploy: true
   deployment_strategy: high_availability
   environment:
     - HOSTNAME=email-test.htmlgraphic.com
     - LOG_TOKEN=
-    - SASLUSER=test@htmlgraphic.com
-    - SASLPASS=9igDof1hvpFAEYp
+    - SASLUSER=
+    - SASLPASS=
     - NODE_ENVIRONMENT=production
   image: 'htmlgraphic/imap-server:loopback'
   ports:
@@ -21,6 +27,7 @@ mail:
     - email
   volumes_from:
     - hg-mailbase
+    - hg-mailvol
 ssh:
   environment:
     - AUTHORIZED_KEYS=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCbKBlYPbK29pUUwtwRIIjwCtZNujOUb77qHIeohOMk+O8z0gEIgkUwVI3x91AlbhctgpQor3IIeFITwGgIKVo33WW64HI9Nfr2vGx9EAfl9CL9cfDj9M9u4EFOn8NkD/TQMH4d1Fslt59eyl4fSV62d98zJ8goJwrolXM5NlS3hss8FtXhN6bNM0V5nliPUrv/1//3ZoZ5p0inOI1xWNHcMEILGllG+yqaknH9yIk880WoCYZuR7q2ddE6mxrBeJFiyryW5nhsxmXfHnsDVGiLh1C3hltEXzZ0Bdj11jhJfgIcuKU1iUFZg3kKVjRAvrteBQA328s5+UJswV+NWFiH hosting@htmlgraphic.com
