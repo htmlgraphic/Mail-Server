@@ -1,5 +1,5 @@
 hg-mailbase:
-  image: 'htmlgraphic/mailbase:latest'
+  image: 'htmlgraphic/mailbase:loopback'
   tags:
     - email
 hg-mailvol:
