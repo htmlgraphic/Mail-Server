@@ -2,7 +2,7 @@
 # By Jason Gegere <jason@htmlgraphic.com>
 
 VERSION 	= 2.1.9
-NAME 		= imap-server
+NAME 		= mail
 IMAGE_REPO 	= htmlgraphic
 IMAGE_NAME 	= $(IMAGE_REPO)/$(NAME)
 DOMAIN 		= htmlgraphic.com
