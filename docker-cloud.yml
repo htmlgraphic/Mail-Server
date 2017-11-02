@@ -1,31 +1,24 @@
-imap:
-  image: 'htmlgraphic/imap-server:latest'
-  environment:
-    - NODE_ENVIRONMENT=production
-    - LOG_TOKEN=
-    - HOSTNAME=imap-test.htmlgraphic.com
+mail:
   autoredeploy: true
   deployment_strategy: high_availability
+  environment:
+    - HOSTNAME=imap-test.htmlgraphic.com
+    - LOG_TOKEN=
+    - SASLUSER=
+    - SASLPASS=
+    - NODE_ENVIRONMENT=production
+  image: 'htmlgraphic/imap-server:latest'
   ports:
-    - '25:25'
     - '143:143'
     - '587:587'
-  volumes_from:
-    - mailbase
-    - mailvol
+    - '25:25'
   restart: always
   tags:
     - email
-    - production
-mailvol:
-  image: 'ubuntu:14.04'
-  volumes:
-    - "/srv"
-  tags:
-    - email
-    - production
+  volumes_from:
+    - mailbase
 mailbase:
   image: 'htmlgraphic/mailbase:latest'
   tags:
     - email
-    - production
+    - staging

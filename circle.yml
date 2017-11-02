@@ -4,14 +4,13 @@ machine:
 dependencies:
   override:
     - docker build --no-cache -t mailbase mailbase/
-    - docker build -t imap-server:2.1.8 dovecot/
+    - docker build -t imap-server:loopback dovecot/
 test:
   override:
-    # test imap-server
+    # TEST IMAP-SERVER
     - docker run --name mailbase mailbase
-    - docker run -v /srv --name mailvol ubuntu:14.04
-    - docker run -d --restart=always --volumes-from mailbase -e SASLUSER=p08tf1X -e SASLPASS=p@ssw0Rd -e LOG_TOKEN=8397b752-123f-4d10-95b1-76f267102a7b --name imap -p 25:25 -p 587:587 -p 143:143 imap-server:2.1.8
-    # test imap-server
+    - docker run -v /srv --name mailvol busybox:latest
+    - docker run -d --restart=always --volumes-from mailbase -e SASLUSER=p08tf1X -e SASLPASS=p@ssw0Rd -e LOG_TOKEN=8397b752-123f-4d10-95b1-76f267102a7b --name imap -p 25:25 -p 587:587 -p 143:143 imap-server:loopback
     - docker logs imap | grep "p08tf1X:p@ssw0Rd"
-    # test logentries sample key
+    # TEST LOGENTRIES SAMPLE KEY
     - docker logs imap | grep "8397b752-123f-4d10-95b1-76f267102a7b"

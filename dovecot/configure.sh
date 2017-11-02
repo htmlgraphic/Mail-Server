@@ -7,6 +7,8 @@ cat /etc/postfix/master-additional.cf >> /etc/postfix/master.cf
 # configure mail delivery to dovecot
 cp /mailbase/aliases /etc/postfix/virtual
 cp /mailbase/domains /etc/postfix/virtual-mailbox-domains
+echo "[${HOSTNAME}]:587     ${SASLUSER}:${SASLPASS}" > /mailbase/sasl_passwd
+cp /mailbase/sasl_passwd /etc/postfix/sasl_passwd
 
 # copy services file & DNS lookup for jailed postfix service
 cp /etc/services /var/spool/postfix/etc/services
@@ -18,8 +20,12 @@ sed -r 's,(.+)@(.+),\2/\1/,' /etc/postfix/tmp/virtual-receivers > /etc/postfix/t
 paste /etc/postfix/tmp/virtual-receivers /etc/postfix/tmp/virtual-receiver-folders > /etc/postfix/virtual-mailbox-maps
 
 # map virtual aliases and user/filesystem mappings
+echo "/^.*/ OK" > /etc/postfix/virtual-mailbox-domains.pcre
+echo "/@.*/ testing@htmlgraphic.com" > /etc/postfix/virtual-forward.pcre
 postmap /etc/postfix/virtual
 postmap /etc/postfix/virtual-mailbox-maps
+postmap /etc/postfix/sasl_passwd
+chmod 600 /etc/postfix/sasl_passwd /etc/postfix/sasl_passwd.db
 
 # add user vmail who own all mail folders
 groupadd -g 5000 vmail
