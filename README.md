@@ -46,13 +46,10 @@ want to receive the mail for and send mail from this domain. It consists of 4 se
 
 ## Docker Compose
 ```bash
-    $ git clone git@github.com:htmlgraphic/dockermail.git && cd dockermail
+    $ git clone https://github.com/htmlgraphic/Mail-Server.git && cd Mail-Server
     $ make
     $ make run (runs complete docker-compose file)
 ```
-
-
-[![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/)
 
 
 ## Build IMAP Server Image
@@ -60,7 +57,7 @@ want to receive the mail for and send mail from this domain. It consists of 4 se
 Build a working **IMAP Server** instance using a `Makefile` and a few terminal commands
 
 ```bash
-  $ git clone https://github.com/htmlgraphic/dockermail.git && cd dockermail
+  $ git clone https://github.com/htmlgraphic/Mail-Server.git && cd Mail-Server
   $ make
   $ make build
 ```
