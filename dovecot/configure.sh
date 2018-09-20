@@ -34,7 +34,7 @@ useradd -g vmail -u 5000 vmail -d /srv/vmail -M
 chown -R vmail:vmail /srv/vmail
 chmod u+w /srv/vmail
 
-# Add password file
+# add IMAP Password file
 cp /mailbase/passwords /etc/dovecot/passwd
 
 # ssl configuration

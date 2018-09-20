@@ -1,5 +1,5 @@
 protocol lda {
-  hostname = mail.docker.container
-  postmaster_address = postmaster@mail.docker.container
+  hostname = email-test.htmlgraphic.com
+  postmaster_address = hosting@htmlgraphic.com
   mail_plugin_dir = /usr/lib/dovecot/modules/lda
 }

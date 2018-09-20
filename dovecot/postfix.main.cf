@@ -38,7 +38,7 @@ mailbox_size_limit = 0
 recipient_delimiter = +
 
 # SMTP configuration for incoming mail (port 25)
-# Outgoing mail (port 587) configuration  is specified in master.cf
+# Outgoing mail (port 587) configuration is specified in master.cf
 
 # allow all connections (since we want to receive mail from outside)
 smtpd_client_restrictions = permit
