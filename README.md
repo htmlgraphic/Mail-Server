@@ -44,7 +44,7 @@ want to receive the mail for and send mail from this domain. It consists of 4 se
 
 ---
 
-## Docker Compose
+## Run Docker Container
 ```bash
     $ git clone https://github.com/htmlgraphic/Mail-Server.git && cd Mail-Server
     $ make
@@ -52,7 +52,7 @@ want to receive the mail for and send mail from this domain. It consists of 4 se
 ```
 
 
-## Build IMAP Server Image
+## Build Image
 
 Build a working **IMAP Server** instance using a `Makefile` and a few terminal commands
 
