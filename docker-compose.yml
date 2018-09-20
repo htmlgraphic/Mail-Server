@@ -1,7 +1,7 @@
 version: "2"
 services:
   mail:
-    image: 'htmlgraphic/imap-server:loopback'
+    image: 'htmlgraphic/mail:loopback'
     container_name: mail
     ports:
       - '25:25'
