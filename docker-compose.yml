@@ -2,7 +2,7 @@ version: "2"
 services:
   mail:
     image: 'htmlgraphic/imap-server:latest'
-    container_name: mail
+    container_name: imap-server
     ports:
       - '25:25'
       - '143:143'
