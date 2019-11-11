@@ -6,7 +6,7 @@ branches:
   only:
   - master
   - develop
-
+  - loopback-master
 
 notifications:
   email:

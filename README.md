@@ -1,5 +1,8 @@
 ## Mail Server Docker (HONEY POT)
 
+[![CircleCI](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/loopback-master.svg?style=svg)](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/loopback-master) [![Run Status](https://api.shippable.com/projects/54b200441cda23c2985c89a2/badge?branch=loopback-master)](https://app.shippable.com/github/htmlgraphic/Mail-Server/dashboard) 
+
+
 A secure, minimal-configuration mail server which will accept any email it receives.
 
 This repository is tailored to help with email development and testing, no email will be sent out from this container build.
@@ -11,46 +14,23 @@ This repository is tailored to help with email development and testing, no email
 
 ---
 
-[![](https://badge.imagelayers.io/htmlgraphic/imap-server:latest.svg)](https://imagelayers.io/?images=htmlgraphic%2Fimap-server:latest 'Get your own badge on imagelayers.io') Visualize Docker images and the layers that compose them.
-
----
-
 ## Run Docker Container
 ```bash
-	$ git clone https://github.com/htmlgraphic/Mail-Server.git && cd Mail-Server
-	$ git checkout loopback-master
-	$ make (list other commands)
-	$ make run (runs docker-compose)
+	> git clone https://github.com/htmlgraphic/Mail-Server.git && cd Mail-Server
+	> git checkout loopback-master
+	> make (list other commands)
+	> make run (runs docker-compose)
 ```
 
 
 ## Run Google Cloud - VM Instance Container-Optimized OS
 ```bash
-git clone https://github.com/htmlgraphic/Mail-Server.git && cd Mail-Server
-git checkout loopback-master
-docker run -d -v /var/run/docker.sock:/var/run/docker.sock -v "$PWD:$PWD" -w="$PWD" docker/compose:1.24.0 up
+	> git clone https://github.com/htmlgraphic/Mail-Server.git && cd Mail-Server
+	> git checkout loopback-master
+	> docker run -d -v /var/run/docker.sock:/var/run/docker.sock -v "$PWD:$PWD" -w="$PWD" docker/compose:1.24.0 up
 ````
 
-
-## Test Driven Development
-
-**[CircleCI](https://circleci.com/gh/htmlgraphic/Mail-Server)** - Test the Dockerfile process, can the container be built the correctly? Verify the build process with a number of tests. Currently with this service no code can be tested on the running container. Data can be echo and available grepping the output via `docker logs | grep value`
-
-[![Circle CI](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/master.svg?style=svg&circle-token=f6aa2aeba9a663c714d5b2da1af9554c5afc086a)](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/develop)
-
-Using **CircleCI** review the `circle.yml` file.
-
-
-**[Shippable](https://shippable.com)** - Run tests on the actual built container. These tests ensure the scripts have been setup properly and the service can start with parameters defined. If any test(s) fail the system should be reviewed closer.
-
-[![Build Status](https://img.shields.io/shippable/54b200441cda23c2985c89a2.svg)](https://app.shippable.com/projects/54b200441cda23c2985c89a2)
-
-Using **Shippable** review the `shippable.yml` file. This service will use a `circle.yml` file configuration but for the unique features provided by **Shippable** it is best to use the deadicated `shippable.yml` file. This service will fully test the creation of your container and can push the complete image to your private Docker repo if you desire.
-
-
 ---
-
-
 
 Setup
 =====
