@@ -1,6 +1,7 @@
 ## Mail Server Docker (HONEY POT)
 
-[![CircleCI](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/loopback-master.svg?style=svg)](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/loopback-master) [![Run Status](https://api.shippable.com/projects/54b200441cda23c2985c89a2/badge?branch=loopback-master)](https://app.shippable.com/github/htmlgraphic/Mail-Server/dashboard) 
+[![CircleCI](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/loopback-master.svg?style=svg)](https://circleci.com/gh/htmlgraphic/Mail-Server/tree/loopback-master) 
+[![Run Status](https://api.shippable.com/projects/54b200441cda23c2985c89a2/badge?branch=loopback-master)](https://app.shippable.com/github/htmlgraphic/Mail-Server/dashboard) 
 
 
 A secure, minimal-configuration mail server which will accept any email it receives.
@@ -23,7 +24,7 @@ This repository is tailored to help with email development and testing, no email
 ```
 
 
-## Run Google Cloud - VM Instance Container-Optimized OS
+## Run Google Cloud - VM Instance
 ```bash
 	> git clone https://github.com/htmlgraphic/Mail-Server.git && cd Mail-Server
 	> git checkout loopback-master
