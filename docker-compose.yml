@@ -2,6 +2,7 @@ version: "2"
 services:
   mail:
     image: 'htmlgraphic/mail:loopback'
+    restart: unless-stopped
     container_name: mail
     ports:
       - '25:25'
