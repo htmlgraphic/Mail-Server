@@ -1,5 +1,8 @@
 FROM ubuntu:14.04
 
+# Create a Docker image with the correct credentials needed.
+# docker build --tag htmlgraphic/mailbase .
+
 ENV DEBIAN_FRONTEND noninteractive
 RUN locale-gen en_US en_US.UTF-8 && dpkg-reconfigure locales
 RUN apt-get update && apt-get -y install \

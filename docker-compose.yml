@@ -12,11 +12,7 @@ services:
       - /data:/srv
     volumes_from:
       - mailbase
-    environment:
-      - HOSTNAME=imap-test.htmlgraphic.com
-      - NODE_ENVIRONMENT=production
-      - LOG_TOKEN=
-      - SASLUSER=
-      - SASLPASS=
+    env_file:
+      - .env
   mailbase:
     image: 'htmlgraphic/mailbase:latest'
