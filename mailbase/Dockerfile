@@ -21,6 +21,6 @@ ADD ./mkcert.sh	/mkcert.sh
 RUN chmod 755 /mkcert.sh
 RUN sh /mkcert.sh
 
-RUN postconf -e "mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 172.17.0.0/18 $SMTP_ALLOW_IP"
+RUN postconf -e "mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 $SMTP_ALLOW_IP"
 
 VOLUME ["/mailbase", "/etc/ssl"]
