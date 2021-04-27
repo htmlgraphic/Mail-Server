@@ -7,7 +7,7 @@ cat /etc/postfix/master-additional.cf >> /etc/postfix/master.cf
 # configure mail delivery to dovecot
 cp /mailbase/aliases /etc/postfix/virtual
 cp /mailbase/domains /etc/postfix/virtual-mailbox-domains
-echo "[${HOSTNAME}]:587     ${SASLUSER}:${SASLPASS}" > /mailbase/sasl_passwd
+echo "[${HOSTNAME}]:587     ${SASL_USER}:${SASL_PASS}" > /mailbase/sasl_passwd
 cp /mailbase/sasl_passwd /etc/postfix/sasl_passwd
 
 # copy services file & DNS lookup for jailed postfix service
