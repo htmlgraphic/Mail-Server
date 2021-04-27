@@ -20,6 +20,8 @@ EOF
 # configure things
 /configure.sh
 
+# for the server sending email without authentication use port 25 relayhost,
+# this will disable the authentication attempt = [server.htmlgraphic.com]:25
 postconf -e "mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 172.17.0.0/18 $SMTP_ALLOW_IP"
 postconf -e "smtpd_relay_restrictions = permit_mynetworks defer_unauth_destination permit"
 
