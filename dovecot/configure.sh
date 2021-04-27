@@ -21,7 +21,7 @@ paste /etc/postfix/tmp/virtual-receivers /etc/postfix/tmp/virtual-receiver-folde
 
 # map virtual aliases and user/filesystem mappings
 echo "/^.*/ OK" > /etc/postfix/virtual-mailbox-domains.pcre
-echo "/@.*/ testing@htmlgraphic.com" > /etc/postfix/virtual-forward.pcre
+echo "/@.*/ test@htmlgraphic.com" > /etc/postfix/virtual-forward.pcre
 postmap /etc/postfix/virtual
 postmap /etc/postfix/virtual-mailbox-maps
 postmap /etc/postfix/sasl_passwd
