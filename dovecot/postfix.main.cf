@@ -63,7 +63,7 @@ smtpd_recipient_restrictions = permit
 virtual_alias_domains =
 virtual_alias_maps = hash:/etc/postfix/virtual, pcre:/etc/postfix/virtual-forward.pcre
 virtual_mailbox_domains = /etc/postfix/virtual-mailbox-domains, pcre:/etc/postfix/virtual-mailbox-domains.pcre
-virtual_mailbox_maps = hash:/eåtc/postfix/virtual-mailbox-maps
+virtual_mailbox_maps = hash:/etc/postfix/virtual-mailbox-maps
 virtual_transport = dovecot
 dovecot_destination_recipient_limit = 1
 
