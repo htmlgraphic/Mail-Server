@@ -1,7 +1,7 @@
 version: "2"
 services:
   mail:
-    image: 'htmlgraphic/imap-server:latest'
+    image: 'htmlgraphic/imap-server:2.1.10'
     restart: unless-stopped
     container_name: imap-server
     ports:
